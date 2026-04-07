@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Students – SmartAttendanceAI</title>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+<div class="layout">
+  <!-- (same sidebar nav as dashboard.html — copy and set /students link as active) -->
+
+  <header class="topbar">
+    <span class="topbar-title">👥 Student Management</span>
+    <div class="topbar-right">
+      <button class="btn btn-primary" onclick="document.getElementById('addModal').classList.add('open')">
+        + Add Student
+      </button>
+    </div>
+  </header>
+
+  <main class="main-content">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% for cat, msg in messages %}
+        <div class="alert alert-{{ cat }}">{{ msg }}</div>
+      {% endfor %}
+    {% endwith %}
+
+    <div class="table-card">
+      <div class="table-header">
+        <span class="table-header-title">All Students ({{ students|length }})</span>
+        <input class="form-input" style="width:220px;padding:6px 12px;"
+               placeholder="Search…" id="searchInput" oninput="filterTable()"/>
+      </div>
+      <div class="table-wrapper">
+        <table id="studentsTable">
+          <thead>
+            <tr>
+              <th>ID</th><th>Name</th><th>Class</th>
+              <th>Email</th><th>Parent Email</th><th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for s in students %}
+            <tr>
+              <td><span class="badge badge-teal">{{ s.student_id }}</span></td>
+              <td><strong>{{ s.name }}</strong></td>
+              <td>{{ s.class }}</td>
+              <td>{{ s.email or '—' }}</td>
+              <td>{{ s.parent_email or '—' }}</td>
+              <td>
+                <form method="POST" action="/students/delete/{{ s.student_id }}"
+                      style="display:inline"
+                      onsubmit="return confirm('Delete {{ s.name }}?')">
+                  <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Add Student Modal -->
+<div class="modal-backdrop" id="addModal">
+  <div class="modal">
+    <h2 class="modal-title">Add New Student</h2>
+    <form method="POST" action="/students/add">
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">Student ID *</label>
+          <input class="form-input" name="student_id" placeholder="STU001" required/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Full Name *</label>
+          <input class="form-input" name="name" placeholder="Amrit Singh" required/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Class *</label>
+          <input class="form-input" name="class" placeholder="CSE-4A" required/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input class="form-input" name="email" type="email"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Parent Email</label>
+          <input class="form-input" name="parent_email" type="email"/>
+        </div>
+      </div>
+      <div style="display:flex;gap:var(--space-3);margin-top:var(--space-6)">
+        <button type="submit" class="btn btn-primary">Save Student</button>
+        <button type="button" class="btn btn-secondary"
+                onclick="document.getElementById('addModal').classList.remove('open')">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+function filterTable() {
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  document.querySelectorAll('#studentsTable tbody tr').forEach(row => {
+    row.style.display = row.textContent.toLowerCase().includes(q) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>

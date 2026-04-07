@@ -1,0 +1,85 @@
+2026-04-06 22:27:27,351 [INFO] __main__: SmartAttendanceAI app started.
+2026-04-06 22:27:27,538 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.249:5000
+2026-04-06 22:27:27,538 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2026-04-06 22:27:27,554 [INFO] werkzeug:  * Restarting with stat
+2026-04-06 22:27:29,590 [INFO] __main__: SmartAttendanceAI app started.
+2026-04-06 22:27:29,753 [WARNING] werkzeug:  * Debugger is active!
+2026-04-06 22:27:29,783 [INFO] werkzeug:  * Debugger PIN: 132-179-185
+2026-04-06 22:29:14,564 [INFO] werkzeug: 127.0.0.1 - - [06/Apr/2026 22:29:14] "[32mGET / HTTP/1.1[0m" 302 -
+2026-04-06 22:29:14,694 [INFO] werkzeug: 127.0.0.1 - - [06/Apr/2026 22:29:14] "GET /auth/login HTTP/1.1" 200 -
+2026-04-06 22:29:14,904 [INFO] werkzeug: 127.0.0.1 - - [06/Apr/2026 22:29:14] "GET /static/css/style.css HTTP/1.1" 200 -
+2026-04-06 22:29:16,090 [INFO] werkzeug: 127.0.0.1 - - [06/Apr/2026 22:29:16] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-04-06 22:30:14,864 [CRITICAL] database.db_connection: DB connection failed: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2026-04-06 22:30:14,866 [ERROR] backend.auth: Login error: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2026-04-06 22:30:14,866 [INFO] werkzeug: 127.0.0.1 - - [06/Apr/2026 22:30:14] "POST /auth/login HTTP/1.1" 200 -
+2026-04-06 22:30:14,992 [INFO] werkzeug: 127.0.0.1 - - [06/Apr/2026 22:30:14] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-06 22:30:52,041 [CRITICAL] database.db_connection: DB connection failed: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2026-04-06 22:30:52,042 [ERROR] backend.auth: Login error: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+2026-04-06 22:30:52,045 [INFO] werkzeug: 127.0.0.1 - - [06/Apr/2026 22:30:52] "POST /auth/login HTTP/1.1" 200 -
+2026-04-06 22:30:52,202 [INFO] werkzeug: 127.0.0.1 - - [06/Apr/2026 22:30:52] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-06 22:35:19,735 [INFO] __main__: SmartAttendanceAI app started.
+2026-04-06 22:35:19,898 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.249:5000
+2026-04-06 22:35:19,899 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2026-04-06 22:35:19,907 [INFO] werkzeug:  * Restarting with stat
+2026-04-06 22:35:22,027 [INFO] __main__: SmartAttendanceAI app started.
+2026-04-06 22:35:22,112 [WARNING] werkzeug:  * Debugger is active!
+2026-04-06 22:35:22,134 [INFO] werkzeug:  * Debugger PIN: 132-179-185
+2026-04-06 22:40:13,233 [INFO] __main__: SmartAttendanceAI app started.
+2026-04-06 22:40:13,406 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.249:5000
+2026-04-06 22:40:13,410 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2026-04-06 22:40:13,422 [INFO] werkzeug:  * Restarting with stat
+2026-04-06 22:40:15,401 [INFO] __main__: SmartAttendanceAI app started.
+2026-04-06 22:40:15,519 [WARNING] werkzeug:  * Debugger is active!
+2026-04-06 22:40:15,541 [INFO] werkzeug:  * Debugger PIN: 132-179-185
+2026-04-06 22:43:05,543 [INFO] __main__: SmartAttendanceAI app started.
+2026-04-06 22:43:05,685 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.249:5000
+2026-04-06 22:43:05,685 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2026-04-06 22:43:05,685 [INFO] werkzeug:  * Restarting with stat
+2026-04-06 22:43:07,336 [INFO] __main__: SmartAttendanceAI app started.
+2026-04-06 22:43:07,416 [WARNING] werkzeug:  * Debugger is active!
+2026-04-06 22:43:07,419 [INFO] werkzeug:  * Debugger PIN: 132-179-185
+2026-04-06 22:43:32,553 [INFO] werkzeug: 127.0.0.1 - - [06/Apr/2026 22:43:32] "[32mGET / HTTP/1.1[0m" 302 -
+2026-04-06 22:43:32,631 [INFO] werkzeug: 127.0.0.1 - - [06/Apr/2026 22:43:32] "GET /auth/login HTTP/1.1" 200 -
+2026-04-06 22:43:32,969 [INFO] werkzeug: 127.0.0.1 - - [06/Apr/2026 22:43:32] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-06 22:44:04,106 [INFO] werkzeug: 127.0.0.1 - - [06/Apr/2026 22:44:04] "POST /auth/login HTTP/1.1" 200 -
+2026-04-06 22:44:04,231 [INFO] werkzeug: 127.0.0.1 - - [06/Apr/2026 22:44:04] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-06 22:44:46,554 [INFO] werkzeug: 127.0.0.1 - - [06/Apr/2026 22:44:46] "POST /auth/login HTTP/1.1" 200 -
+2026-04-06 22:44:46,683 [INFO] werkzeug: 127.0.0.1 - - [06/Apr/2026 22:44:46] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-06 22:45:10,457 [INFO] werkzeug: 127.0.0.1 - - [06/Apr/2026 22:45:10] "POST /auth/login HTTP/1.1" 200 -
+2026-04-06 22:45:10,597 [INFO] werkzeug: 127.0.0.1 - - [06/Apr/2026 22:45:10] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-07 09:26:54,507 [INFO] backend.app: SmartAttendanceAI app started.
+2026-04-07 09:26:54,672 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.249:5000
+2026-04-07 09:26:54,672 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2026-04-07 09:27:05,962 [INFO] werkzeug: 192.168.0.249 - - [07/Apr/2026 09:27:05] "[32mGET / HTTP/1.1[0m" 302 -
+2026-04-07 09:27:06,098 [INFO] werkzeug: 192.168.0.249 - - [07/Apr/2026 09:27:06] "GET /auth/login HTTP/1.1" 200 -
+2026-04-07 09:27:08,166 [INFO] werkzeug: 192.168.0.249 - - [07/Apr/2026 09:27:08] "[32mGET / HTTP/1.1[0m" 302 -
+2026-04-07 09:27:08,207 [INFO] werkzeug: 192.168.0.249 - - [07/Apr/2026 09:27:08] "GET /auth/login HTTP/1.1" 200 -
+2026-04-07 09:27:08,438 [INFO] werkzeug: 192.168.0.249 - - [07/Apr/2026 09:27:08] "GET /static/css/style.css HTTP/1.1" 200 -
+2026-04-07 09:27:09,748 [INFO] werkzeug: 192.168.0.249 - - [07/Apr/2026 09:27:09] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-04-07 09:27:41,021 [CRITICAL] database.db_connection: DB connection failed: 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+2026-04-07 09:27:41,022 [ERROR] backend.auth: Login error: 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+2026-04-07 09:27:41,024 [INFO] werkzeug: 192.168.0.249 - - [07/Apr/2026 09:27:41] "POST /auth/login HTTP/1.1" 200 -
+2026-04-07 09:27:41,179 [INFO] werkzeug: 192.168.0.249 - - [07/Apr/2026 09:27:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-07 09:31:27,906 [CRITICAL] database.db_connection: DB connection failed: 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+2026-04-07 09:31:27,908 [ERROR] backend.auth: Login error: 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+2026-04-07 09:31:27,908 [INFO] werkzeug: 192.168.0.249 - - [07/Apr/2026 09:31:27] "POST /auth/login HTTP/1.1" 200 -
+2026-04-07 09:31:28,019 [INFO] werkzeug: 192.168.0.249 - - [07/Apr/2026 09:31:28] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-04-07 09:34:27,908 [INFO] werkzeug: 127.0.0.1 - - [07/Apr/2026 09:34:27] "[32mGET / HTTP/1.1[0m" 302 -
+2026-04-07 09:34:30,349 [INFO] werkzeug: 127.0.0.1 - - [07/Apr/2026 09:34:30] "GET /auth/login HTTP/1.1" 200 -
+2026-04-07 09:34:34,874 [INFO] werkzeug: 127.0.0.1 - - [07/Apr/2026 09:34:34] "GET /static/css/style.css HTTP/1.1" 200 -
+2026-04-07 09:36:11,178 [INFO] werkzeug: 127.0.0.1 - - [07/Apr/2026 09:36:11] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -

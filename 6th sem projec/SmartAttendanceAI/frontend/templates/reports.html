@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Reports – SmartAttendanceAI</title>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
+</head>
+<body>
+<div class="layout">
+
+  <header class="topbar">
+    <span class="topbar-title">📑 Attendance Reports</span>
+    <div class="topbar-right">
+      <a href="/export/csv" class="btn btn-primary btn-sm">⬇ Export CSV</a>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <!-- Low Attendance Alerts -->
+    {% if low_attendance %}
+    <div class="alert alert-warning">
+      ⚠️ {{ low_attendance|length }} student(s) have attendance below 75%.
+    </div>
+    <div class="table-card" style="margin-bottom:var(--space-6)">
+      <div class="table-header"><span class="table-header-title">🚨 Low Attendance Students</span></div>
+      <div class="table-wrapper">
+        <table>
+          <thead><tr><th>Student</th><th>Class</th><th>Present Days</th><th>Attendance %</th></tr></thead>
+          <tbody>
+            {% for s in low_attendance %}
+            <tr>
+              <td><strong>{{ s.name }}</strong></td>
+              <td>{{ s.class }}</td>
+              <td>{{ s.present_days or 0 }} / {{ s.total_days or 30 }}</td>
+              <td><span class="badge badge-red">{{ s.pct or 0 }}%</span></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- Today's Attendance -->
+    <div class="table-card" style="margin-bottom:var(--space-6)">
+      <div class="table-header">
+        <span class="table-header-title">Today's Attendance</span>
+        <span class="badge badge-teal">{{ daily|length }} records</span>
+      </div>
+      <div class="table-wrapper">
+        <table>
+          <thead><tr><th>ID</th><th>Name</th><th>Class</th><th>Subject</th><th>Time</th><th>Status</th></tr></thead>
+          <tbody>
+            {% for r in daily %}
+            <tr>
+              <td>{{ r.student_id }}</td>
+              <td><strong>{{ r.name }}</strong></td>
+              <td>{{ r.class }}</td>
+              <td>{{ r.subject }}</td>
+              <td>{{ r.time }}</td>
+              <td><span class="badge badge-green">{{ r.status }}</span></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Subject-wise -->
+    <div class="charts-grid">
+      <div class="chart-card">
+        <div class="chart-title">Subject-Wise Attendance</div>
+        <canvas id="subjectChart" height="250"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">Monthly Student Summary</div>
+        <canvas id="monthlyRank" height="250"></canvas>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+  const subjectData = {{ subject_wise | tojson }};
+  const colors = ['#14b8a6','#f97316','#a855f7','#3b82f6','#22c55e','#f59e0b'];
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Subject pie
+    new Chart(document.getElementById('subjectChart').getContext('2d'), {
+      type: 'doughnut',
+      data: {
+        labels: subjectData.map(s => s.subject),
+        datasets: [{
+          data:            subjectData.map(s => s.present),
+          backgroundColor: colors,
+          borderColor:     '#111315',
+          borderWidth:     2,
+        }]
+      },
+      options: {
+        plugins: { legend: { labels: { color: '#e2e8f0' } } },
+        cutout: '60%',
+      }
+    });
+
+    // Monthly bar from API
+    fetch('/api/analytics/monthly').then(r=>r.json()).then(data => {
+      new Chart(document.getElementById('monthlyRank').getContext('2d'), {
+        type: 'bar',
+        data: {
+          labels: data.map(d => d.date),
+          datasets: [{
+            label: 'Present', data: data.map(d => d.count),
+            backgroundColor: 'rgba(20,184,166,.7)', borderRadius: 4,
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: { legend: { labels: { color: '#e2e8f0' } } },
+          scales: {
+            x: { ticks: { color: '#e2e8f0' }, grid: { color: '#252b33' } },
+            y: { ticks: { color: '#e2e8f0' }, grid: { color: '#252b33' }, beginAtZero: true }
+          }
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
